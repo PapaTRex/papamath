@@ -18,7 +18,7 @@ def questions(limit):
 
 def quiz(asker, times):
     '''
-    Ask questions and verify answer
+    Ask questions and verify answers
     提出times道问题并验证答案
     '''
     exits = ['q', 'quit', 'exit', 'wtf?', '退出', '老子不做了'] # Lowercase exit codes
@@ -32,7 +32,6 @@ def quiz(asker, times):
             print('不做了？真的吗？') # Quit? Really?
             break
         print('回答正确，太棒啦！') # Great job
-    print('干得不错，再接再厉哦！拜拜~') # See you next time
 
 
 def main():
@@ -46,6 +45,7 @@ def main():
     limit = 50 if len(sys.argv) < 2 else int(sys.argv[1])
     times = 20 if len(sys.argv) < 3 else int(sys.argv[2])
     quiz(questions(limit), times=times)
+    print('干得不错，再接再厉哦！拜拜~') # See you next time
     
     
 if __name__ == '__main__':
