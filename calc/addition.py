@@ -42,8 +42,8 @@ def main():
          python3 ./addition.py 20
          python3 ./addition.py 20 50
     '''
-    limit = 50 if len(sys.argv) < 2 else int(sys.argv[1])
-    times = 20 if len(sys.argv) < 3 else int(sys.argv[2])
+    limit = int(sys.argv[1]) if len(sys.argv) > 1 else 100
+    times = int(sys.argv[2]) if len(sys.argv) > 2 else 50
     quiz(questions(limit), times=times)
     print('干得不错，再接再厉哦！拜拜~') # See you next time
     
