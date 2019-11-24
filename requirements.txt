@@ -1,1 +1,2 @@
 # package dependencies
+numpy>=1.15
