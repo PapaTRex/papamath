@@ -4,7 +4,7 @@
 import re
 import unittest
 
-from calc import addition
+from papamath.calc import addition
 
 
 class AdditionTest(unittest.TestCase):
