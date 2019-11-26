@@ -8,15 +8,15 @@ import numpy as np
 from ..eval import quiz
 
 
-def questions(limit):
+def add_ints(limit, num=2):
     """
     Generate questions and answers for addition
     Each addend would be less than limit
     limit以内加法的生成器
     """
     while True:
-        left, right = np.random.randint(0, limit, size=2)
-        yield f'{left} + {right} = ', left + right
+        addends = np.random.randint(0, limit, size=num)
+        yield f'{" + ".join(map(str, addends))} = ', np.sum(addends)
 
 
 def main():
@@ -29,7 +29,7 @@ def main():
     """
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     times = int(sys.argv[2]) if len(sys.argv) > 2 else 50
-    num, fails = quiz.repeat(questions(limit), times=times)
+    num, fails = quiz.repeat(add_ints(limit), times=times)
     fail_num = len(fails)
     if fail_num == 0:
         summary = '全部计算正确，太棒了，再接再厉哦！'

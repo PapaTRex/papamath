@@ -12,16 +12,16 @@ class AdditionTest(unittest.TestCase):
     Test addition module
     """
 
-    def test_questions(self):
+    def test_add_ints(self):
         """
         Test questions generator function
         """
-        limit = 100
-        questioner = addition.questions(limit)
+        limit, num = 100, 3
+        questioner = addition.add_ints(limit=limit, num=num)
         for _ in range(5):
             question, solution = next(questioner)
-            left, right, *_ = re.split(r'[+=]', question)
-            self.assertEqual(int(left.strip()) + int(right.strip()), solution)
+            addends = re.split(r'[+=]', question)[:num]
+            self.assertEqual(sum(map(int, addends)), solution)
 
 
 if __name__ == '__main__':

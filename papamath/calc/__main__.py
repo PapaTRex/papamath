@@ -17,7 +17,7 @@ def main():
     """
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     times = int(sys.argv[2]) if len(sys.argv) > 2 else 50
-    num, fails = quiz.repeat(addition.questions(limit), times=times)
+    num, fails = quiz.repeat(addition.add_ints(limit), times=times)
     fail_num = len(fails)
     if fail_num == 0:
         summary = '全部计算正确，太棒了，再接再厉哦！'
