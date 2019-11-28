@@ -5,6 +5,7 @@ import datetime as dt
 import sys
 
 from . import addition
+from . import subtraction
 from ..eval import quiz
 
 
@@ -19,7 +20,8 @@ def main():
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     times = int(sys.argv[2]) if len(sys.argv) > 2 else 50
 
-    summary = quiz.repeat(addition.add_ints(limit), times=times)
+    summary = quiz.repeat(
+        [addition.add_ints(limit), subtraction.sub_ints(limit)], times=times)
     num = len(summary['question'].unique())
     if num > 0:
         total_time = summary['spent'].sum()
